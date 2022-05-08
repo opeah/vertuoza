@@ -8,3 +8,16 @@ export class DtoLoginForm {
   @IsNotEmpty()
   password: string;
 }
+
+export class DtoRegisterForm {
+  @IsNotEmpty()
+  @IsEmail()
+  email: string;
+
+  @IsNotEmpty()
+  password: string;
+}
+
+export interface DtoToken {
+  token: string;
+}

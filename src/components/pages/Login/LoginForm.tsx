@@ -1,19 +1,38 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { classValidatorResolver } from '@hookform/resolvers/class-validator';
+
+import { RouteConfig } from '@/config';
 
 import { DtoLoginForm } from '@/domain/dto';
 
 import { Box, Button, Flex, Heading, Input } from '@/components/atoms';
 
+import { useAuth, useLoginMutation } from '@/hooks';
+
 export const LoginForm = (): JSX.Element => {
+  const { accessToken, userId, handleAuth, set } = useAuth();
+  const { mutateAsync: login } = useLoginMutation();
   const { handleSubmit, register } = useForm<DtoLoginForm>({
     resolver: classValidatorResolver(DtoLoginForm),
   });
+  const navigate = useNavigate();
 
-  const onSubmit = handleSubmit((data) => {
-    console.log(data);
+  const onSubmit = handleSubmit(async (data) => {
+    const { token } = await login(data);
+    handleAuth(token);
   });
+
+  useEffect(() => {
+    if (accessToken && userId) {
+      set((S) => ({
+        ...S,
+        isAuthenticated: true,
+      }));
+      navigate(RouteConfig.educations);
+    }
+  }, [accessToken, navigate, set, userId]);
 
   return (
     <Flex
@@ -36,10 +55,10 @@ export const LoginForm = (): JSX.Element => {
         </Box>
         <form onSubmit={onSubmit}>
           <Box mb={4}>
-            <Input {...register(`email`)} />
+            <Input type="email" {...register(`email`)} />
           </Box>
           <Box mb={7}>
-            <Input {...register(`password`)} />
+            <Input type="password" {...register(`password`)} />
           </Box>
           <Box>
             <Button type="submit" w="100%">
