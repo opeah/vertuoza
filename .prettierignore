@@ -1,0 +1,15 @@
+# JetBrains
+.idea
+
+#  Node
+node_modules
+
+# Gatsby
+.cache
+public
+
+# Generated
+src/domain/entities/gatsby.ts
+src/domain/entities/shopify.ts
+src/domain/entities/shopify-admin.ts
+src/domain/entities/shopify-storefront.ts

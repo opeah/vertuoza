@@ -1,0 +1,79 @@
+{
+  "compilerOptions": {
+    /* Basic Options */
+    "incremental": true,
+    "target": "ESNext",
+    "module": "CommonJS",
+    "lib": ["ESNext", "DOM"],
+    // "allowJs": true,
+    // "checkJs": true,
+    "jsx": "react",
+    "declaration": true,
+    // "declarationMap": true,
+    "sourceMap": true,
+    // "outFile": "./",
+    // "outDir": "./dist",
+    // "rootDir": "./",
+    "composite": true,
+    // "tsBuildInfoFile": "./",
+    "removeComments": true,
+    "noEmit": true,
+    // "importHelpers": true,
+    // "downlevelIteration": true,
+    "isolatedModules": true,
+
+    /* Strict Type-Checking Options */
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": false,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+
+    /* Additional Checks */
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+
+    /* Module Resolution Options */
+    "moduleResolution": "node",
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["./*"]
+    },
+    // "rootDirs": [],
+    // "typeRoots": [],
+    // "types": ["node"],
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    // "preserveSymlinks": true,
+    // "allowUmdGlobalAccess": true,
+
+    /* Source Map Options */
+    // "sourceRoot": "",
+    // "mapRoot": "",
+    // "inlineSourceMap": true,
+    // "inlineSources": true,
+
+    /* Experimental Options */
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+
+    /* Advanced Options */
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true
+  },
+  "include": [
+    "plugins",
+    "src",
+    "gatsby-browser.tsx",
+    "gatsby-config.ts",
+    "gatsby-node.ts",
+    "gatsby-ssr.tsx"
+  ],
+  "exclude": [".cache", "node_modules", "public"]
+}
