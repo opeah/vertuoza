@@ -44,7 +44,7 @@ export const Educations = (): JSX.Element => {
         >
           <Flex mb={3} alignItems="center">
             <Box>
-              <Heading size="lg">Education records</Heading>
+              <Heading size="md">Education records</Heading>
             </Box>
             <Box ml="auto">
               <Button onClick={onClick}>Create</Button>

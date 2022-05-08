@@ -10,6 +10,7 @@ import { DtoLoginForm } from '@/domain/dto';
 import { Box, Button, Flex, Heading, Input } from '@/components/atoms';
 
 import { useAuth, useLoginMutation } from '@/hooks';
+import { FormLabel } from '@chakra-ui/react';
 
 export const LoginForm = (): JSX.Element => {
   const { accessToken, userId, handleAuth, set } = useAuth();
@@ -55,13 +56,15 @@ export const LoginForm = (): JSX.Element => {
         </Box>
         <form onSubmit={onSubmit}>
           <Box mb={4}>
+            <FormLabel>E-mail</FormLabel>
             <Input type="email" {...register(`email`)} />
           </Box>
           <Box mb={7}>
+            <FormLabel>Password</FormLabel>
             <Input type="password" {...register(`password`)} />
           </Box>
           <Box>
-            <Button type="submit" w="100%">
+            <Button bg="blue.300" color="white" type="submit" w="100%">
               Log-in
             </Button>
           </Box>
